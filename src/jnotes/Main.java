@@ -56,7 +56,7 @@ public class Main {
         System.out.println();
         switch (option) {
             case 1:
-                System.out.println("  [ Add Note ] Type your new note...");
+                System.out.println("  [ Add Note ] Type new note...");
                 System.out.println();
                 System.out.print("  >> ");
                 String newNote = input.nextLine();
@@ -74,6 +74,21 @@ public class Main {
                 notes[noteNumber - 1] = "(removed)";
                 System.out.println();
                 System.out.println("   [i] Note removed successfully!");
+                break;
+            case 3:
+                System.out.println("   [ Edit Note ] Type note number...");
+                System.out.println();
+                System.out.print("  >> ");
+                int noteNumber2 = input.nextInt();
+                input.nextLine();
+                System.out.println();
+                System.out.println("   [ Edit Note ] Type new note...");
+                System.out.println();
+                System.out.print("  >> ");
+                String newNote2 = input.nextLine();
+                System.out.println();
+                notes[noteNumber2 - 1] = newNote2;
+                System.out.println("   [i] Note edited successfully!");
                 break;
         }
         clearScreen();
