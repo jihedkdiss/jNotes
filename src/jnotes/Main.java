@@ -65,6 +65,16 @@ public class Main {
                 System.out.println();
                 System.out.println("  [i] Note added successfully!");
                 break;
+            case 2:
+                System.out.println("  [ Remove Note ] Type note number...");
+                System.out.println();
+                System.out.print("  >> ");
+                int noteNumber = input.nextInt();
+                input.nextLine();
+                notes[noteNumber - 1] = "(removed)";
+                System.out.println();
+                System.out.println("   [i] Note removed successfully!");
+                break;
         }
         clearScreen();
     }
