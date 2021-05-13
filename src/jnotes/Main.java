@@ -92,11 +92,22 @@ public class Main {
                 break;
             case 4:
                 System.out.println("  [ Clear Notes ] Clearing notes...");
+                System.out.println();
                 for (int i = 0; i < notes.length; i++) {
                     notes[i] = "(empty)";
                 }
                 cursor = 0;
                 System.out.println("  [i] Notes cleared successfully!");
+                break;
+            case 5:
+                System.out.println("  [ Print Notes ] Printing notes...");
+                System.out.println();
+                for (int i = 0; i < notes.length; i++) {
+                    if (!notes[i].equals("(empty)")) {
+                        System.out.println("  " + i + 1 + ". " + notes[i]);
+                    }
+                System.out.println("  [i] Notes printed successfully!");
+                }
                 break;
         }
         clearScreen();
