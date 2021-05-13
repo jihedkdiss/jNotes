@@ -1,5 +1,7 @@
 package jnotes;
 
+import java.io.IOException;
+
 public class Main {
 
     public static void printBanner() {
@@ -10,6 +12,7 @@ public class Main {
                         "  _/ |_| \\_|\\___/ \\__\\___||___/\n" +
                         " |__/      Coded by @jihedkdiss";
         System.out.println(banner);
+        System.out.println();
     }
 
     public static void printOptions() {
@@ -21,7 +24,21 @@ public class Main {
         System.out.println("  6. Close");
     }
 
-    public static void main(String[] args) {
+    public static void clearScreen() throws IOException, InterruptedException {
+        String os = System.getProperty("os.name");
+        if (os.equals("Linux")) {
+            new ProcessBuilder("clear").inheritIO().start().waitFor();
+        } else if (os.contains("Windows")) {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        } else {
+            System.out.println("  [ Error Occured ]");
+            System.out.println("  System not recognised. Leaving...");
+            System.exit(1);
+        }
+    }
+
+    public static void main(String[] args) throws IOException, InterruptedException {
+        clearScreen();
         printBanner();
         printOptions();
     }
