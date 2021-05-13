@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void printBanner() {
+    private static void printBanner() {
         String banner = "    _ _   _       _                \n" +
                         "   (_) \\ | | ___ | |_ ___  ___    \n" +
                         "   | |  \\| |/ _ \\| __/ _ \\/ __| \n" +
@@ -16,7 +16,7 @@ public class Main {
         System.out.println();
     }
 
-    public static void printOptions() {
+    private static void printOptions() {
         System.out.println("  1. Add Note");
         System.out.println("  2. Remove Note");
         System.out.println("  3. Edit Note");
@@ -25,15 +25,16 @@ public class Main {
         System.out.println("  6. Close");
     }
 
-    public static void clearScreen() throws IOException, InterruptedException {
+    private static void clearScreen() throws IOException, InterruptedException {
         String os = System.getProperty("os.name");
         if (os.equals("Linux")) {
+            //noinspection Since15
             new ProcessBuilder("clear").inheritIO().start().waitFor();
         } else if (os.contains("Windows")) {
+            //noinspection Since15
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         } else {
-            System.out.println("  [ Error Occured ]");
-            System.out.println("  System not recognised. Leaving...");
+            System.out.println("  [ Error ] System not recognised. Leaving...");
             System.exit(1);
         }
     }
