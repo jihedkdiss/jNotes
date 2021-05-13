@@ -1,6 +1,7 @@
 package jnotes;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
 
@@ -38,8 +39,14 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {
+        Scanner input = new Scanner(System.in);
         clearScreen();
         printBanner();
         printOptions();
+        System.out.println();
+        System.out.print("  >> ");
+        int option = input.nextInt();
+        System.out.println();
+        clearScreen();
     }
 }
