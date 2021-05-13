@@ -6,12 +6,12 @@ import java.util.Scanner;
 public class Main {
 
     private static void printBanner() {
-        String banner = "    _ _   _       _                \n" +
+        String banner = "\u001B[92m    _ _   _       _                \n" +
                         "   (_) \\ | | ___ | |_ ___  ___    \n" +
                         "   | |  \\| |/ _ \\| __/ _ \\/ __| \n" +
                         "   | | |\\  | (_) | ||  __/\\__ \\ \n" +
                         "  _/ |_| \\_|\\___/ \\__\\___||___/\n" +
-                        " |__/      Coded by @jihedkdiss";
+                        " |__/      Coded by @jihedkdiss \u001B[0m";
         System.out.println(banner);
         System.out.println();
     }
@@ -72,9 +72,11 @@ public class Main {
             int option = input.nextInt();
             input.nextLine();
             System.out.println();
+            clearScreen();
+            printBanner();
             switch (option) {
                 case 1:
-                    System.out.println("  [ Add Note ] Type new note...");
+                    System.out.println("  \u001B[92m\u001B[7m[ Add Note ]\u001B[0m\u001B[0m \u001B[93mType new note...\u001B[0m");
                     System.out.println();
                     System.out.print("  >> ");
                     String newNote = input.nextLine();
