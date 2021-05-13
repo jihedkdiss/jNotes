@@ -109,6 +109,10 @@ public class Main {
                 System.out.println("  [i] Notes printed successfully!");
                 }
                 break;
+            case 6:
+                clearScreen();
+                System.exit(0);
+                break;
         }
         clearScreen();
     }
