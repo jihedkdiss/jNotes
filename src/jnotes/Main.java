@@ -73,22 +73,30 @@ public class Main {
                 input.nextLine();
                 notes[noteNumber - 1] = "(removed)";
                 System.out.println();
-                System.out.println("   [i] Note removed successfully!");
+                System.out.println("  [i] Note removed successfully!");
                 break;
             case 3:
-                System.out.println("   [ Edit Note ] Type note number...");
+                System.out.println("  [ Edit Note ] Type note number...");
                 System.out.println();
                 System.out.print("  >> ");
                 int noteNumber2 = input.nextInt();
                 input.nextLine();
                 System.out.println();
-                System.out.println("   [ Edit Note ] Type new note...");
+                System.out.println("  [ Edit Note ] Type new note...");
                 System.out.println();
                 System.out.print("  >> ");
                 String newNote2 = input.nextLine();
                 System.out.println();
                 notes[noteNumber2 - 1] = newNote2;
-                System.out.println("   [i] Note edited successfully!");
+                System.out.println("  [i] Note edited successfully!");
+                break;
+            case 4:
+                System.out.println("  [ Clear Notes ] Clearing notes...");
+                for (int i = 0; i < notes.length; i++) {
+                    notes[i] = "(empty)";
+                }
+                cursor = 0;
+                System.out.println("  [i] Notes cleared successfully!");
                 break;
         }
         clearScreen();
