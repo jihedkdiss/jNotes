@@ -40,13 +40,31 @@ public class Main {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner input = new Scanner(System.in);
+        String[] notes = new String[64];
+        for (int i = 0; i < notes.length; i++) {
+            notes[i] = "(empty)";
+        }
+        int cursor = 0;
         clearScreen();
         printBanner();
         printOptions();
         System.out.println();
         System.out.print("  >> ");
         int option = input.nextInt();
+        input.nextLine();
         System.out.println();
+        switch (option) {
+            case 1:
+                System.out.println("  [ Add Note ] Type your new note...");
+                System.out.println();
+                System.out.print("  >> ");
+                String newNote = input.nextLine();
+                notes[cursor] = newNote;
+                cursor++;
+                System.out.println();
+                System.out.println("  [i] Note added successfully!");
+                break;
+        }
         clearScreen();
     }
 }
