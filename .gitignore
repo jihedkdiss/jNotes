@@ -10,6 +10,9 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+# Cover for Social Media Preview
+Pictures/Cover.png
+
 # Package Files #
 *.jar
 *.war
