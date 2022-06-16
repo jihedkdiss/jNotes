@@ -58,9 +58,6 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner input = new Scanner(System.in);
         String[] notes = new String[64];
-        for (int i = 0; i < notes.length; i++) {
-            notes[i] = "(empty)";
-        }
         int cursor = 0;
 
         while(true) {
@@ -92,7 +89,7 @@ public class Main {
                     System.out.print("  >> ");
                     int noteNumber = input.nextInt();
                     input.nextLine();
-                    notes[noteNumber - 1] = "(removed)";
+                    notes[noteNumber - 1] = null;
                     System.out.println();
                     System.out.println("  [i] Note removed successfully!");
                     Thread.sleep(2000);
@@ -127,8 +124,8 @@ public class Main {
                     System.out.println("  [ Print Notes ] Printing notes...");
                     System.out.println();
                     for (int i = 0; i < notes.length; i++) {
-                        if (!notes[i].equals("(empty)")) {
-                            System.out.println("  " + i + 1 + ". " + notes[i]);
+                        if (notes[i] != null) {
+                            System.out.println("  " + (i + 1) + ". " + notes[i]);
                         }
                     }
                     System.out.println("  -- END --");
