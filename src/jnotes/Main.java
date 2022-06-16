@@ -81,7 +81,8 @@ public class Main {
                     cursor++;
                     System.out.println();
                     System.out.println("  [i] Note added successfully!");
-                    Thread.sleep(2000);
+                    System.out.println();
+                    waitForUser();
                     break;
                 case 2:
                     System.out.println("  [ Remove Note ] Type note number...");
@@ -92,7 +93,8 @@ public class Main {
                     notes[noteNumber - 1] = null;
                     System.out.println();
                     System.out.println("  [i] Note removed successfully!");
-                    Thread.sleep(2000);
+                    System.out.println();
+                    waitForUser();
                     break;
                 case 3:
                     System.out.println("  [ Edit Note ] Type note number...");
@@ -108,7 +110,8 @@ public class Main {
                     System.out.println();
                     notes[noteNumber2 - 1] = newNote2;
                     System.out.println("  [i] Note edited successfully!");
-                    Thread.sleep(2000);
+                    System.out.println();
+                    waitForUser();
                     break;
                 case 4:
                     System.out.println("  [ Clear Notes ] Clearing notes...");
@@ -118,7 +121,8 @@ public class Main {
                     }
                     cursor = 0;
                     System.out.println("  [i] Notes cleared successfully!");
-                    Thread.sleep(2000);
+                    System.out.println();
+                    waitForUser();
                     break;
                 case 5:
                     System.out.println("  [ Print Notes ] Printing notes...");
@@ -137,6 +141,8 @@ public class Main {
                     clearScreen();
                     System.exit(0);
                     break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + option);
             }
             clearScreen();
         }
