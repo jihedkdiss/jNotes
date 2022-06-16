@@ -142,7 +142,9 @@ public class Main {
                     System.exit(0);
                     break;
                 default:
-                    throw new IllegalStateException("Unexpected value: " + option);
+                    clearScreen();
+                    printBanner();
+                    System.out.println("  [i] Unexpected choice: " + option);
             }
             clearScreen();
         }
