@@ -103,6 +103,8 @@ public class Main {
                     int noteNumber2 = input.nextInt();
                     input.nextLine();
                     System.out.println();
+                    System.out.println("  (" + notes[noteNumber2 - 1] + ")");
+                    System.out.println();
                     System.out.println("  [ Edit Note ] Type new note...");
                     System.out.println();
                     System.out.print("  >> ");
@@ -145,6 +147,8 @@ public class Main {
                     clearScreen();
                     printBanner();
                     System.out.println("  [i] Unexpected choice: " + option);
+                    System.out.println();
+                    waitForUser();
             }
             clearScreen();
         }
