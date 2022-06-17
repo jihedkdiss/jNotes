@@ -1,9 +1,6 @@
 package jnotes;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.Scanner;
 
 public class Main {
@@ -144,8 +141,8 @@ public class Main {
                     System.out.println("  [ Export Notes ] Enter the location where to save your notes...");
                     System.out.println();
                     System.out.print("  >> ");
-                    String fileLocation = input.nextLine();
-                    PrintStream out = new PrintStream(new FileOutputStream(fileLocation));
+                    String exportLocation = input.nextLine();
+                    PrintStream out = new PrintStream(new FileOutputStream(exportLocation));
                     try {
                         for (int i = 0; i < notes.length; i++) {
                             if (notes[i] != null)
@@ -159,7 +156,21 @@ public class Main {
                     waitForUser();
                     break;
                 case 7:
-                    
+                    System.out.println("  [ Import Notes ] Enter the location of your notes...");
+                    System.out.println();
+                    System.out.print("  >> ");
+                    String importLocation = input.nextLine();
+                    File importFile = new File(importLocation);
+                    Scanner importScanner = new Scanner(importFile);
+                    int line = 0;
+                    while (importScanner.hasNextLine()) {
+                        notes[line] = importScanner.nextLine();
+                        line++;
+                    }
+                    System.out.println();
+                    System.out.println("  [i] Notes imported successfully!");
+                    waitForUser();
+                    break;
                 case 8:
                     clearScreen();
                     System.exit(0);
