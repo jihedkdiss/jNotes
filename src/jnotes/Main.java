@@ -1,17 +1,17 @@
 package jnotes;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class Main {
 
     private static void printBanner() {
         String banner = "    _ _   _       _                \n" +
-                        "   (_) \\ | | ___ | |_ ___  ___    \n" +
-                        "   | |  \\| |/ _ \\| __/ _ \\/ __| \n" +
-                        "   | | |\\  | (_) | ||  __/\\__ \\ \n" +
-                        "  _/ |_| \\_|\\___/ \\__\\___||___/\n" +
-                        " |__/      Coded by @jihedkdiss";
+                "   (_) \\ | | ___ | |_ ___  ___    \n" +
+                "   | |  \\| |/ _ \\| __/ _ \\/ __| \n" +
+                "   | | |\\  | (_) | ||  __/\\__ \\ \n" +
+                "  _/ |_| \\_|\\___/ \\__\\___||___/\n" +
+                " |__/      Coded by @jihedkdiss";
         System.out.println(banner);
         System.out.println();
     }
@@ -22,7 +22,9 @@ public class Main {
         System.out.println("  3. Edit Note");
         System.out.println("  4. Clear Notes");
         System.out.println("  5. Print Notes");
-        System.out.println("  6. Close");
+        System.out.println("  6. Export Notes");
+        System.out.println("  7. Import Notes");
+        System.out.println("  8. Close");
     }
 
     private static void waitForUser() throws IOException, InterruptedException {
@@ -60,7 +62,7 @@ public class Main {
         String[] notes = new String[64];
         int cursor = 0;
 
-        while(true) {
+        while (true) {
             clearScreen();
             printBanner();
             printOptions();
@@ -81,7 +83,6 @@ public class Main {
                     cursor++;
                     System.out.println();
                     System.out.println("  [i] Note added successfully!");
-                    System.out.println();
                     waitForUser();
                     break;
                 case 2:
@@ -93,7 +94,6 @@ public class Main {
                     notes[noteNumber - 1] = null;
                     System.out.println();
                     System.out.println("  [i] Note removed successfully!");
-                    System.out.println();
                     waitForUser();
                     break;
                 case 3:
@@ -112,7 +112,6 @@ public class Main {
                     System.out.println();
                     notes[noteNumber2 - 1] = newNote2;
                     System.out.println("  [i] Note edited successfully!");
-                    System.out.println();
                     waitForUser();
                     break;
                 case 4:
@@ -123,7 +122,6 @@ public class Main {
                     }
                     cursor = 0;
                     System.out.println("  [i] Notes cleared successfully!");
-                    System.out.println();
                     waitForUser();
                     break;
                 case 5:
@@ -140,6 +138,40 @@ public class Main {
                     waitForUser();
                     break;
                 case 6:
+                    System.out.println("  [ Export Notes ] Enter the location where to save your notes...");
+                    System.out.println();
+                    System.out.print("  >> ");
+                    String exportLocation = input.nextLine();
+                    PrintStream out = new PrintStream(new FileOutputStream(exportLocation));
+                    try {
+                        for (int i = 0; i < notes.length; i++) {
+                            if (notes[i] != null)
+                                out.println(notes[i]);
+                        }
+                    } catch (Exception e) {
+                        System.out.println("  [!] " + e);
+                    }
+                    System.out.println();
+                    System.out.println("  [i] Notes exported successfully!");
+                    waitForUser();
+                    break;
+                case 7:
+                    System.out.println("  [ Import Notes ] Enter the location of your notes...");
+                    System.out.println();
+                    System.out.print("  >> ");
+                    String importLocation = input.nextLine();
+                    File importFile = new File(importLocation);
+                    Scanner importScanner = new Scanner(importFile);
+                    int line = 0;
+                    while (importScanner.hasNextLine()) {
+                        notes[line] = importScanner.nextLine();
+                        line++;
+                    }
+                    System.out.println();
+                    System.out.println("  [i] Notes imported successfully!");
+                    waitForUser();
+                    break;
+                case 8:
                     clearScreen();
                     System.exit(0);
                     break;
@@ -147,7 +179,6 @@ public class Main {
                     clearScreen();
                     printBanner();
                     System.out.println("  [i] Unexpected choice: " + option);
-                    System.out.println();
                     waitForUser();
             }
             clearScreen();
