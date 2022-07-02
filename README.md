@@ -56,6 +56,12 @@ Internet access is not required. I am not responsible for any damages done to yo
 With that said, jNotes has been tested on Windows 7, 8.1 and 10. Bug reports, suggestions and tips are always welcome!
 You can support the development of jNotes. Star this repository! 🌟
 
+### Features
+
+* Console-based which means you can run it anywhere just grab the executable and go!
+* Fast and furious with all the features you need for a modern todo app or note taking app.
+* You can export and import notes across all platforms.
+* The console interface is modern and soon colorful!
 
 ### Built With
 
