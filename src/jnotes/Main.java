@@ -43,6 +43,16 @@ public class Main {
         }
     }
 
+    private static String countNotes(String[] notes) {
+        int nbOfNotes = 0;
+        for (int i = 0; i < notes.length; i++) {
+            if (notes[i] != null) nbOfNotes++;
+        }
+        if (nbOfNotes == 0) return "No Notes";
+        if (nbOfNotes == 1) return "1 Note";
+        return nbOfNotes + " Notes";
+    }
+
     private static void clearScreen() throws IOException, InterruptedException {
         String os = System.getProperty("os.name");
         if (os.equals("Linux")) {
@@ -65,6 +75,8 @@ public class Main {
         while (true) {
             clearScreen();
             printBanner();
+            System.out.println("  [ " + countNotes(notes) +  " ]");
+            System.out.println();
             printOptions();
             System.out.println();
             System.out.print("  >> ");
