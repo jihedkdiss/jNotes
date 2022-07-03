@@ -130,7 +130,7 @@ public class Main {
                     System.out.println("  [ Clear Notes ] Clearing notes...");
                     System.out.println();
                     for (int i = 0; i < notes.length; i++) {
-                        notes[i] = "(empty)";
+                        notes[i] = null;
                     }
                     cursor = 0;
                     System.out.println("  [i] Notes cleared successfully!");
