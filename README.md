@@ -9,7 +9,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/jihedkdiss/jNotes">
-    <img src="https://github.com/jihedkdiss/jNotes/blob/main/Pictures/Logo.png" alt="Logo" width="80" height="80">
+    <img src="Pictures/Logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">jNotes</h3>
@@ -49,7 +49,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![jNotes Screenshot](https://raw.githubusercontent.com/jihedkdiss/jNotes/main/Pictures/Screenshot.png)
+![jNotes Screenshot](Pictures/Screenshot.png)
 
 <b>jNotes</b> is an open-source console note taking app coded entirely in Java.
 Internet access is not required. I am not responsible for any damages done to your PC while using jNotes.
